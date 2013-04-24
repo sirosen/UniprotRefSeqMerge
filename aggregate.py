@@ -64,15 +64,13 @@ rowkeys = []
 for uni in uniprot_to_refandprotsandfs:
     (ref,ps,fs) = uniprot_to_refandprotsandfs[uni]
     rowkeys.append((uni,ref,ps,fs))
-    if len(ps) == 0:
-        for p in ps:
-            prots_to_fs.pop(p,None)
+    for p in ps:
+        prots_to_fs.pop(p,None)
 for ref in refseq_to_uniandprotsandfs:
     (uni,ps,fs) = refseq_to_uniandprotsandfs[ref]
     rowkeys.append((uni,ref,ps,fs))
-    if len(ps) == 0:
-        for p in ps:
-            prots_to_fs.pop(p,None)
+    for p in ps:
+        prots_to_fs.pop(p,None)
 for p in prots_to_fs:
     rowkeys.append((None,None,[p],list(prots_to_fs[p])))
 
