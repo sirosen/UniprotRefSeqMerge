@@ -76,8 +76,8 @@ for p in prots_to_fs:
 
 
 def printkey((uni,ref,ps,fs)):
-    print(('| %15s | %15s | ' % (uni,ref)) + ', '.join(fs) + ' | ' + ', '.join(ps))
+    print(('| %15s | %15s | ' % (uni,ref)) + ', '.join(fs) + ' | ' + ', '.join(ps) + ' |')
 
-print('| %15s | %15s | File Names | Protein Names' % ('Uniprot','RefSeq'))
+print('| %15s | %15s | File Names | Protein Names |' % ('Uniprot','RefSeq'))
 for k in rowkeys:
     printkey(k)
