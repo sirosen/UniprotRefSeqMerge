@@ -63,9 +63,13 @@ for fname in files:
 rowkeys = []
 for uni in uniprot_to_refandprotsandfs:
     (ref,ps,fs) = uniprot_to_refandprotsandfs[uni]
-    rowkeys.append((uni,ref,ps,fs))
+    if ref in refseq_to_uniandprotsandfs:
+        (uni_dummy,ps_two,fs_dummy) = refseq_to_uniandprotsandfs[ref]
+        ps.update(ps_two)
     for p in ps:
         prots_to_fs.pop(p,None)
+    refseq_to_uniandprotsandfs.pop(ref,None)
+    rowkeys.append((uni,ref,ps,fs))
 for ref in refseq_to_uniandprotsandfs:
     (uni,ps,fs) = refseq_to_uniandprotsandfs[ref]
     rowkeys.append((uni,ref,ps,fs))
